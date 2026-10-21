@@ -16,3 +16,13 @@
 - 1,185 条载具及来源链接仍为同一套离线数据，不额外下载资源。
 - 使用无网络依赖的 Chromium 自动测试：语言切换、搜索、以色列国家筛选、权重筛选、重置及翻页无脚本错误。
 - 后续需要社区复核英文摘要、图片授权、具体配置与游戏实装状态。
+
+
+## V10.1 bilingual release
+
+- Added an English / 中文 interface, including nation, vehicle type, status, search, RB filters, and pagination.
+- Automatically chooses browser language where no preference is saved; manual language toggle is available.
+- Maintains all 1,185 records and their original Chinese analyses, with conservative structured English summaries shown alongside expandable Chinese source text.
+- English full technical translations and Chinese qualifiers in 64 titles still require editorial review (Issue #3).
+- Offline HTML and source code are MIT-licensed; embedded third-party photos remain excluded pending rights review.
+- Bilingual functionality was smoke-tested locally in Chromium, including search, filtering, pagination, and language persistence.
