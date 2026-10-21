@@ -20,6 +20,14 @@
 
 本项目与 Gaijin Entertainment、War Thunder 和 OpenAI 无隶属、授权或赞助关系。该开源工程只表示项目代码/整理工作的开放，不代表获得第三方图片、论坛帖子或游戏资产的版权许可。
 
+
+## 当前维护任务 / Maintenance roadmap
+
+这个仓库刚开始公开发布，尚无可核实的长期用户量、下载量或维护历史；欢迎社区参与核查。
+
+- [核对 597 条待核实载具记录](https://github.com/nailong12356789-cell/war-thunder-dev-passed-atlas/issues/1)
+- [逐张核实图像授权，再决定是否重新加入离线照片](https://github.com/nailong12356789-cell/war-thunder-dev-passed-atlas/issues/2)
+
 ## 参与开发
 
 欢迎创建 Issue 报告型号、转交月份、图片来源、国家归属和是否实装的错误；提供官方 Wiki、官方论坛或可信资料链接。提交修复时请说明证据与核实日期，避免无来源推测。参见 [CONTRIBUTING.md](CONTRIBUTING.md)。
