@@ -1,4 +1,4 @@
-# War Thunder — Dev-Passed Vehicle Atlas (V10)
+# War Thunder — Dev-Passed Vehicle Atlas (V10.1 · 中文 / English)
 
 **《战争雷霆》已转交开发者载具图鉴｜独立非官方社区项目**
 
@@ -10,7 +10,11 @@
 - 采用原始 V10 的数据，附 `data/vehicles.json` 便于程序化使用。
 - 本开源准备版**不打包原始第三方图片**，仅保留来源链接和许可信息。详见 [IMAGE_RIGHTS.md](IMAGE_RIGHTS.md)。
 
-## 使用方法
+## 使用方法 / How to use
+
+**V10.1 新增中文 / English 一键切换**：根据浏览器语言自动选择，也可以手动切换；英文版的 RB 分析是保守结构化摘要，点击 “Original analysis (Chinese)” 可查看完整中文原文。详情见 [TRANSLATION.md](TRANSLATION.md)。
+
+**English:** Open `index.html` to browse offline with no installation. Use the 中文 / English switch to change the interface language. Search accepts English nation names and Chinese/English vehicle aliases. Technical notes in English are structured summaries, not complete verified translations; expand “Original analysis (Chinese)” for the exact original text.
 
 打开 `index.html` 即可离线浏览：搜索、筛选、排序和卡片列表在允许 JavaScript 的浏览器中正常工作。iOS「文件」快速预览可能禁用 JavaScript，此时页面会显示完整的静态载具目录。原始建议与图片来源链接需要联网。
 
@@ -42,4 +46,4 @@
 
 ## English summary
 
-This is an independent, unofficial, offline-first atlas for War Thunder vehicle suggestions passed to the developers. It includes 1,185 candidate entries and community-projected RB values, not official game ratings. A number of entries remain unverified. All third-party image binaries have been excluded from the public starter release while source links and licensing metadata are retained. Open `index.html` directly in a browser to browse offline.
+This is an independent, unofficial, bilingual Chinese/English offline-first atlas for War Thunder vehicle suggestions passed to the developers. It includes 1,185 candidate entries and community-projected RB values, not official game ratings. A number of entries remain unverified. All third-party image binaries have been excluded from the public starter release while source links and licensing metadata are retained. Open `index.html` directly in a browser to browse offline. Interface source: `src/app.js` (rebuild using `npm run build`).
