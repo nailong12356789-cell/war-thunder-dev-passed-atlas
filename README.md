@@ -4,8 +4,8 @@
 
 收录官方论坛“已转交开发者”的载具候选，并提供国家、类别、年份、预计历史模式战斗评级（RB）和状态筛选。支持 iPhone / Windows **离线打开 `index.html`**，不需要安装依赖或搭建服务器。**V10.1 已加入中文 / English 一键切换、浏览器语言自动识别以及中英文搜索。**源文件数据核查截至 **2026-10-10**。
 
-- **1,185** 条候选记录：陆战 **552** / 空战 **527** / 直升机 **106**。
-- **597** 条状态仍待核实；转交开发者不代表已经确定实装。
+- **1,184** 条候选记录：陆战 **551** / 空战 **527** / 直升机 **106**。
+- **596** 条状态仍待核实；转交开发者不代表已经确定实装。
 - RB 为项目自制预测，不是官方 War Thunder 数据。
 - 采用原始 V10 的数据，附 `data/vehicles.json` 便于程序化使用。
 - 本开源准备版**不打包原始第三方图片**，仅保留来源链接和许可信息。详见 [IMAGE_RIGHTS.md](IMAGE_RIGHTS.md)。
@@ -22,7 +22,7 @@
 
 仓库管理员可在 **Settings → Pages → Build and deployment** 中选择 **Deploy from a branch**，然后选 **main** 与 **/(root)**，点击 **Save**。本站是纯静态 HTML，无构建步骤；仓库内的 `.nojekyll` 避免默认 Jekyll 处理。**未启用 Pages 前，不要把预期网址当作已经上线。**
 
-## 数据的来源与限制
+**数据去重记录（2026-10-22）：** 中国线 `Jaguar MBT`（2021 年旧论坛）和 `Jaguar Main Battle Tank`（2025 年新论坛）是同一基础车型的建议，已合并为一张卡片，并保留两次转交来源；美国线的建议仍独立列出，科技树归属与具体方案尚待核实。\n\n## 数据的来源与限制
 
 数据基于已有 V10 单文件离线图鉴整理，并非在本仓库中逐条重新核实。截至源文件日期，历史月报仍有缺口，已转交状态、配置差异、是否正式实装和 RB 都应逐条复核。请勿把待核实资料当成官方确认信息。
 
@@ -33,7 +33,7 @@
 
 这个仓库刚开始公开发布，尚无可核实的长期用户量、下载量或维护历史；欢迎社区参与核查。
 
-- [核对 597 条待核实载具记录](https://github.com/nailong12356789-cell/war-thunder-dev-passed-atlas/issues/1)
+- [核对 596 条待核实载具记录](https://github.com/nailong12356789-cell/war-thunder-dev-passed-atlas/issues/1)
 - [逐张核实图像授权，再决定是否重新加入离线照片](https://github.com/nailong12356789-cell/war-thunder-dev-passed-atlas/issues/2)
 - [校对英文载具名称和技术分析](https://github.com/nailong12356789-cell/war-thunder-dev-passed-atlas/issues/3)
 
@@ -49,4 +49,4 @@
 
 **Version 10.1 is bilingual.** Open [`index.html`](index.html) to switch between **中文** and **English**. The UI, filters, nations, statuses and searches support English; projected RB descriptions are cautious English summaries rather than full technical translations. The original Chinese reasoning is expandable on every card. Language preference is saved locally. If JavaScript is blocked, a static Chinese catalog remains available.
 
-This is an independent, unofficial, bilingual Chinese/English offline-first atlas for War Thunder vehicle suggestions passed to the developers. It includes 1,185 candidate entries and community-projected RB values, not official game ratings. A number of entries remain unverified. All third-party image binaries have been excluded from the public starter release while source links and licensing metadata are retained. Open `index.html` directly in a browser to browse offline. Interface source: `src/app.js` (rebuild using `npm run build`).
+This is an independent, unofficial, bilingual Chinese/English offline-first atlas for War Thunder vehicle suggestions passed to the developers. It includes 1,184 candidate entries and community-projected RB values, not official game ratings. A number of entries remain unverified. All third-party image binaries have been excluded from the public starter release while source links and licensing metadata are retained. Open `index.html` directly in a browser to browse offline. Interface source: `src/app.js` (rebuild using `npm run build`).
