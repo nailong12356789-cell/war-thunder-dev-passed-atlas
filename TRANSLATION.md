@@ -1,6 +1,6 @@
 # Translation / 翻译说明
 
-V10.1 introduces a Chinese/English language switch with automatic browser-language detection. The preferred language is retained locally when browser storage is available. All 1,185 candidate records, URLs, and RB estimates remain shared between both languages.
+V10.1 introduces a Chinese/English language switch with automatic browser-language detection. The preferred language is retained locally when browser storage is available. The current public atlas contains 1,184 deduplicated candidate records, URLs, and RB estimates remain shared between both languages.
 
 **Important accuracy limitation:** The English RB paragraph is an automatically structured **summary**, not a sentence-by-sentence translation of the original Chinese technical assessment. It exposes reference vehicles, available community-estimated RB values, and broad equipment categories already mentioned in the Chinese source. A collapsible **Original analysis (Chinese)** section retains the complete source reasoning. **No English technical summary should be treated as independently verified military/game data.**
 
