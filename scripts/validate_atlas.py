@@ -33,7 +33,7 @@ def validate(html_path: Path, json_path: Path) -> None:
     jaguars = [r for r in data if r.get("group") == "中国"
                and r["kind"] == "G" and "jaguar" in r["name"].casefold()]
     assert len(jaguars) == 1, "Chinese Jaguar MBT must appear once"
-    sources = jaguars[0].get("related_suggestions") or []
+    sources = jaguars[0].get("historical_sources") or []
     assert any(src.get("month") == "2021-02" and src.get("suggestion_url")
                and src.get("monthly_url") for src in sources), "Historic Jaguar provenance missing"
 
