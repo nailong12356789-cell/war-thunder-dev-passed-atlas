@@ -68,7 +68,7 @@ def main() -> int:
             errors.append(f"Unknown review status in {rec.get('id')}.")
         # Month is the transfer-to-developers month, not the suggestion posting date.
         month = rec.get("month")
-        if month and not re.fullmatch(r"\\d{4}-(?:0[1-9]|1[0-2])", str(month)):
+        if month and not re.fullmatch(r"\d{4}-(?:0[1-9]|1[0-2])", str(month)):
             errors.append(f"Invalid transfer month in {rec.get('id')}: {month!r}")
         history = rec.get("related_suggestions", [])
         if not isinstance(history, list):
@@ -80,7 +80,7 @@ def main() -> int:
                     errors.append(f"Malformed history record in {rec.get('id')}.")
                     continue
                 when = historic.get("month")
-                if not isinstance(when, str) or not re.fullmatch(r"\\d{4}-(?:0[1-9]|1[0-2])", when):
+                if not isinstance(when, str) or not re.fullmatch(r"\d{4}-(?:0[1-9]|1[0-2])", when):
                     errors.append(f"Invalid historical transfer month in {rec.get('id')}: {when!r}")
                 for url_field in ("suggestion_url", "monthly_url"):
                     u = historic.get(url_field)
