@@ -5,6 +5,7 @@ This is an independent, bilingual **Chinese / English** War Thunder fan atlas. T
 ## Current support
 - Language switch: **中文 / English** (browser language detected initially; a locally saved preference can override it).
 - Nation names, filters, categories, status labels and navigation are translated.
+- All **64 existing vehicle titles with Chinese qualifiers** now have a separate `name_en` display title; the original `name` and record ID are preserved. Both languages are searchable, and English-mode name sorting uses the English title.
 - Chinese and English names/aliases can both be used for searching where aliases exist.
 - English vehicle-analysis text is a **conservative auto-generated summary**, not a full professional translation of each original Chinese note.
 - Expand **Original analysis (Chinese)** on a card to check the source technical rationale.
