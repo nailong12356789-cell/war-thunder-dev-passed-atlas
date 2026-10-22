@@ -24,6 +24,7 @@ h1{font-size:clamp(25px,5vw,42px);margin:8px 0;line-height:1.25}h1 small{font-si
 .reason-source{font-size:12px;color:#a9bdc6;margin:12px 0}
 .reason-source summary{cursor:pointer;color:#ebc785}
 .reason-source p{margin:8px 0;line-height:1.7}
+.grid .empty{grid-column:1/-1;text-align:center;color:var(--dim);padding:28px 12px;border:1px dashed var(--line);border-radius:9px}
 </style></head><body>
 <header><div class="wrap"><div class="meta">INDEPENDENT FAN PROJECT · NO AFFILIATION WITH GAIJIN</div>
 <h1>已转交开发者载具图鉴<small>WAR THUNDER · DEV-PASSED VEHICLE ATLAS · V10</small></h1>
@@ -1319,7 +1320,7 @@ h1{font-size:clamp(25px,5vw,42px);margin:8px 0;line-height:1.25}h1 small{font-si
         const el=document.createElement('article');el.className='card';
         const displayName=lang==='en'?(r.name_en||r.name):r.name;
         const photo=r.photos?.[0]||{};
-        const rb=r.over?tr.over:(r.rb_label||tr.unknown);
+        const rb=r.over?tr.over:(typeof r.rb==='number'?(r.rb_label||r.rb.toFixed(1)):(lang==='en'?tr.unknown:(r.rb_label||tr.unknown)));
         const chinese=String(r.rb_reason||r.reason||tr.defaultReason);
         const reason=lang==='en'?englishReason(r):chinese;
         const details=lang==='en'?`<details class="reason-source"><summary>${esc(tr.origin)}</summary><p lang="zh-CN">${esc(chinese)}</p></details>`:'';
@@ -1327,10 +1328,20 @@ h1{font-size:clamp(25px,5vw,42px);margin:8px 0;line-height:1.25}h1 small{font-si
         frag.appendChild(el);
       }
       $('grid').replaceChildren(frag);
+      if(!shown.length){const empty=document.createElement('p');empty.className='empty';empty.textContent=lang==='en'?'No vehicles match these filters. Try changing or clearing them.':'没有符合条件的载具，请调整或清空筛选。';$('grid').appendChild(empty);}
       $('resultCount').textContent=tr.hits(hits.length,records.length);
       const pages=Math.max(1,Math.ceil(hits.length/pageSize));
       $('pageStatus').textContent=`${page+1} / ${pages}`;
       $('prev').disabled=page===0;$('next').disabled=page>=pages-1;
+    }
+    // "Above the current maximum" sorts above every numeric BR; unknown BR sorts last.
+    const rbRank = r => r.over ? Infinity : (typeof r.rb==='number' ? r.rb : null);
+    function compareRb(a,b,descending){
+      const av=rbRank(a),bv=rbRank(b);
+      if(av===null)return bv===null?0:1;
+      if(bv===null)return -1;
+      if(av===bv)return 0;
+      return descending?bv-av:av-bv;
     }
     function filter(){
       const q=$('q').value.trim().toLocaleLowerCase(),country=$('country').value,kind=$('kind').value,year=$('year').value,status=$('status').value,rb=$('rb').value,order=$('order').value;
@@ -1338,7 +1349,7 @@ h1{font-size:clamp(25px,5vw,42px);margin:8px 0;line-height:1.25}h1 small{font-si
         const searchable=[r.name,r.name_en,r.country,r.group,countryEN[r.country],countryEN[r.group],T.en.kinds[r.kind],T.zh.kinds[r.kind],statusText(r),statusEN[r.status_label],r.rb_reason,r.reason,...(r.aliases||[]),...(r.historical_sources||[]).map(s=>s.month||''),...(r.related_suggestions||[]).flatMap(s=>[s.month||'',s.name||''])].join(' ').toLocaleLowerCase();
         return (!q||searchable.includes(q))&&(!country||r.group===country)&&(!kind||r.kind===kind)&&(!year||(year==='unknown'?!r.month&&!(r.historical_sources||[]).some(src=>src.month)&&!(r.related_suggestions||[]).some(src=>src.month):[r.month,...(r.historical_sources||[]).map(src=>src.month),...(r.related_suggestions||[]).map(src=>src.month)].some(m=>(m||'').startsWith(year))))&&(!status||r.status===status)&&(!rb||(rb==='over'?r.over:!r.over&&r.rb===Number(rb)));
       });
-      hits.sort((a,b)=>order==='recent'?(b.month||'').localeCompare(a.month||''):order==='name'?(lang==='en'?(a.name_en||a.name):(a.name||'')).localeCompare(lang==='en'?(b.name_en||b.name):(b.name||'')):order==='low'?(a.rb??999)-(b.rb??999):order==='high'?(b.rb??-1)-(a.rb??-1):String(a.group).localeCompare(String(b.group),'zh-CN')||String(a.kind).localeCompare(String(b.kind))||String(a.name).localeCompare(String(b.name)));
+      hits.sort((a,b)=>order==='recent'?(b.month||'').localeCompare(a.month||''):order==='name'?(lang==='en'?(a.name_en||a.name):(a.name||'')).localeCompare(lang==='en'?(b.name_en||b.name):(b.name||'')):order==='low'?compareRb(a,b,false):order==='high'?compareRb(a,b,true):String(a.group).localeCompare(String(b.group),'zh-CN')||String(a.kind).localeCompare(String(b.kind))||String(a.name).localeCompare(String(b.name)));
       page=0;render();
     }
     const langBar=document.createElement('nav');langBar.className='lang-switch';langBar.setAttribute('aria-label','Language / 语言');
