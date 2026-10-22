@@ -1,5 +1,0 @@
-# Do not commit the user's original image-heavy local HTML file
-*Original*.html
-*.zip
-.DS_Store
-Thumbs.db

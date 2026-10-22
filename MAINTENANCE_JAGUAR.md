@@ -1,0 +1,1 @@
+Merged China Jaguar MBT duplicate (2021 and 2025 forum records) into one vehicle entry. Both original suggestion URLs and monthly source links are retained in historical_sources. USA tree Jaguar remains pending a separate nation-assignment review. Counts: 1,184 vehicles, 551 ground, 527 air, 106 helicopters, 596 pending.
