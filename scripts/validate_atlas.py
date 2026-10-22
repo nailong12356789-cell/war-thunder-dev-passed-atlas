@@ -37,6 +37,11 @@ def validate(html_path: Path, json_path: Path) -> None:
     assert any(src.get("month") == "2021-02" and src.get("suggestion_url")
                and src.get("monthly_url") for src in sources), "Historic Jaguar provenance missing"
 
+    # DB-A is a Bolkhovitinov design, not a separate Tupolev proposal.
+    dba = [r for r in data if r["name"] in {"Bolkhovitinov DB-A", "Tupolev DB-A"}]
+    assert len(dba) == 1 and dba[0]["name"] == "Bolkhovitinov DB-A", \
+        "DB-A historical duplicate or incorrect attribution has returned"
+
     # Names with Chinese qualifiers need an English display title while keeping the original.
     localized = [row for row in data if re.search(r"[\u3400-\u9fff]", row["name"])]
     untranslated = [row["id"] for row in localized

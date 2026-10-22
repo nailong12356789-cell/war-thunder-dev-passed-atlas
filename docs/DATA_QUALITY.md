@@ -2,7 +2,7 @@
 
 *Checked against published V10.1.1 data, 2026-10-22.*
 
-This is a **triage list**, not an official verification of any vehicle's status or implementation. The public data currently contains **1184 entries**, with **29 entries without a reliably recorded dev-passed month**. Do not invent dates or remove entries solely because a date is missing.
+This is a **triage list**, not an official verification of any vehicle's status or implementation. The public data currently contains **1183 entries**, with **29 entries without a reliably recorded dev-passed month**. Do not invent dates or remove entries solely because a date is missing.
 
 ## Missing transfer month / 缺少转交月份
 
@@ -51,3 +51,7 @@ See [Issue #5](https://github.com/nailong12356789-cell/war-thunder-dev-passed-at
 ## Checks
 
 Use `python3 scripts/validate_atlas.py` to verify the embedded JSON matches `data/vehicles.json`, IDs are unique, counts are accurate, and the Chinese Jaguar history remains available. The 29 unknown months are tracked as warnings until backed by evidence.
+
+## Confirmed duplicate / 已去重
+
+**Bolkhovitinov DB-A — USSR, Aircraft:** merged historical record `h344599b`, formerly mislabeled “Tupolev DB-A,” into `h20010104`. Both shared the same [January 2020 original suggestion](https://forum.warthunder.com/index.php?/topic/344599-russian-snail-bombers-tb-3am-34frn-dba/) and RB estimate. The surviving record retains the prior Reddit secondary evidence in `issues` and the old-forum monthly report URL in `monthly_url`. The legacy monthly-report page contents could not be independently reopened. [DB-A design background](https://www.globalsecurity.org/military/world/russia/db-a.htm) credits V. F. Bolkhovitinov and distinguishes the aircraft from the Tupolev TB-3 it was intended to replace.

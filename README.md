@@ -4,7 +4,7 @@
 
 收录官方论坛“已转交开发者”的载具候选，并提供国家、类别、年份、预计历史模式战斗评级（RB）和状态筛选。支持 iPhone / Windows **离线打开 `index.html`**，不需要安装依赖或搭建服务器。**V10.1 已加入中文 / English 一键切换、浏览器语言自动识别以及中英文搜索。**源文件数据核查截至 **2026-10-10**。
 
-- **1,184** 条候选记录：陆战 **551** / 空战 **527** / 直升机 **106**。
+- **1,183** 条候选记录：陆战 **551** / 空战 **526** / 直升机 **106**。
 - **596** 条状态仍待核实；转交开发者不代表已经确定实装。
 - **64** 条含中文括注的载具新增 `name_en` 英文显示名；原始中文名称、转交日期和来源均保留，中英文均可搜索。
 - RB 为项目自制预测，不是官方 War Thunder 数据。
@@ -64,8 +64,12 @@ Run `python3 scripts/validate_atlas.py` to check records, data synchronization a
 
 **Version 10.1 is bilingual.** Open [`index.html`](index.html) to switch between **中文** and **English**. The UI, filters, nations, statuses and searches support English; projected RB descriptions are cautious English summaries rather than full technical translations. The original Chinese reasoning is expandable on every card. Language preference is saved locally. If JavaScript is blocked, a static Chinese catalog remains available.
 
-This is an independent, unofficial, bilingual Chinese/English offline-first atlas for War Thunder vehicle suggestions passed to the developers. It includes 1,184 candidate entries and community-projected RB values, not official game ratings. A number of entries remain unverified. All third-party image binaries have been excluded from the public starter release while source links and licensing metadata are retained. Open `index.html` directly in a browser to browse offline. The published `index.html` is a self-contained offline page; its embedded dataset is checked against `data/vehicles.json`.
+This is an independent, unofficial, bilingual Chinese/English offline-first atlas for War Thunder vehicle suggestions passed to the developers. It includes 1,183 candidate entries and community-projected RB values, not official game ratings. A number of entries remain unverified. All third-party image binaries have been excluded from the public starter release while source links and licensing metadata are retained. Open `index.html` directly in a browser to browse offline. The published `index.html` is a self-contained offline page; its embedded dataset is checked against `data/vehicles.json`.
 
 ## Jaguar duplicate correction
 
 The China-tree 2021 and 2025 Jaguar MBT records were consolidated; both source links are retained in `historical_sources`. The separate US-tree proposal remains under review.
+
+## DB-A record reconciliation (2026-10-22)
+
+The two records `h20010104` (Bolkhovitinov DB-A) and `h344599b` (misattributed Tupolev DB-A) described the same aircraft, appeared in the same January 2020 suggestion, and shared the same estimated RB. They were consolidated into `h20010104`, preserving the earlier secondary reference in the record notes and the previously recorded official monthly-report URL. The old forum report body remains unverified because the legacy link is not currently accessible. Bolkhovitinov, rather than Tupolev, led the DB-A design; the aircraft was conceived to supersede the Tupolev TB-3. See https://www.globalsecurity.org/military/world/russia/db-a.htm .
