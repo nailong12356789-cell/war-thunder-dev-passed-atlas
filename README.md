@@ -20,7 +20,7 @@
 
 ## 在线查看 / GitHub Pages
 
-仓库管理员可在 **Settings → Pages → Build and deployment** 中选择 **Deploy from a branch**，然后选 **main** 与 **/(root)**，点击 **Save**。本站是纯静态 HTML，无构建步骤；仓库内的 `.nojekyll` 避免默认 Jekyll 处理。**未启用 Pages 前，不要把预期网址当作已经上线。**
+仓库管理员可在 **Settings → Pages → Build and deployment** 中选择 **Deploy from a branch**，然后选 **main** 与 **/(root)**，点击 **Save**。本站是纯静态 HTML，无构建步骤；仓库内的 `.nojekyll` 避免默认 Jekyll 处理。图鉴网站：[War Thunder Dev-Passed Atlas](https://nailong12356789-cell.github.io/war-thunder-dev-passed-atlas/)。
 
 **数据去重记录（2026-10-22）：** 中国线 `Jaguar MBT`（2021 年旧论坛）和 `Jaguar Main Battle Tank`（2025 年新论坛）是同一基础车型的建议，已合并为一张卡片，并保留两次转交来源；美国线的建议仍独立列出，科技树归属与具体方案尚待核实。\n\n## 数据的来源与限制
 
@@ -36,6 +36,12 @@
 - [核对 596 条待核实载具记录](https://github.com/nailong12356789-cell/war-thunder-dev-passed-atlas/issues/1)
 - [逐张核实图像授权，再决定是否重新加入离线照片](https://github.com/nailong12356789-cell/war-thunder-dev-passed-atlas/issues/2)
 - [校对英文载具名称和技术分析](https://github.com/nailong12356789-cell/war-thunder-dev-passed-atlas/issues/3)
+
+## 数据质量检查 / Data validation
+
+运行 `python scripts/validate_atlas.py`，可离线检查：记录 ID 是否重复、`data/vehicles.json` 与 `index.html` 内嵌数据是否一致、主页数字是否准确，以及中国美洲虎去重结果是否被意外覆盖。GitHub Actions 会在相关文件被修改时自动执行检查。缺少转交月份和疑似同名载具将以警告形式提示，不能在缺乏资料时直接批量删除。
+
+Run `python scripts/validate_atlas.py` locally. The same check runs in GitHub Actions on data/site changes. Suspected duplicate names are warnings until individually verified.
 
 ## 参与开发
 
