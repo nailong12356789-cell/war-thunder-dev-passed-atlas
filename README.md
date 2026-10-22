@@ -22,7 +22,9 @@
 
 仓库管理员可在 **Settings → Pages → Build and deployment** 中选择 **Deploy from a branch**，然后选 **main** 与 **/(root)**，点击 **Save**。本站是纯静态 HTML，无构建步骤；仓库内的 `.nojekyll` 避免默认 Jekyll 处理。图鉴网站：[War Thunder Dev-Passed Atlas](https://nailong12356789-cell.github.io/war-thunder-dev-passed-atlas/)。
 
-**数据去重记录（2026-10-22）：** 中国线 `Jaguar MBT`（2021 年旧论坛）和 `Jaguar Main Battle Tank`（2025 年新论坛）是同一基础车型的建议，已合并为一张卡片，并保留两次转交来源；美国线的建议仍独立列出，科技树归属与具体方案尚待核实。\n\n## 数据的来源与限制
+**数据去重记录（2026-10-22）：** 中国线 `Jaguar MBT`（2021 年旧论坛）和 `Jaguar Main Battle Tank`（2025 年新论坛）是同一基础车型的建议，已合并为一张卡片，并保留两次转交来源；美国线的建议仍独立列出，科技树归属与具体方案尚待核实。
+
+## 数据的来源与限制
 
 数据基于已有 V10 单文件离线图鉴整理，并非在本仓库中逐条重新核实。截至源文件日期，历史月报仍有缺口，已转交状态、配置差异、是否正式实装和 RB 都应逐条复核。请勿把待核实资料当成官方确认信息。
 
