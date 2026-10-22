@@ -1245,7 +1245,7 @@ h1{font-size:clamp(25px,5vw,42px);margin:8px 0;line-height:1.25}h1 small{font-si
     let hits = [], page=0;
     const pageSize=24;
     const countries=[...new Set(records.map(r=>r.group).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'zh-CN'));
-    const years=[...new Set(records.map(r=>(r.month||'').slice(0,4)).filter(Boolean))].sort().reverse();
+    const years=[...new Set(records.flatMap(r=>[r.month,...(r.historical_sources||[]).map(s=>s.month),...(r.related_suggestions||[]).map(s=>s.month)]).map(m=>(m||'').slice(0,4)).filter(Boolean))].sort().reverse();
     const rbValues=[...new Set(records.map(r=>r.rb).filter(v=>typeof v==='number'))].sort((a,b)=>a-b);
     const featurePatterns=[
       [/热像|热成像|红外瞄|夜视/, 'thermal sights'],
@@ -1334,8 +1334,8 @@ h1{font-size:clamp(25px,5vw,42px);margin:8px 0;line-height:1.25}h1 small{font-si
     function filter(){
       const q=$('q').value.trim().toLocaleLowerCase(),country=$('country').value,kind=$('kind').value,year=$('year').value,status=$('status').value,rb=$('rb').value,order=$('order').value;
       hits=records.filter(r=>{
-        const searchable=[r.name,r.country,r.group,countryEN[r.country],countryEN[r.group],T.en.kinds[r.kind],T.zh.kinds[r.kind],statusText(r),statusEN[r.status_label],r.rb_reason,r.reason,...(r.aliases||[])].join(' ').toLocaleLowerCase();
-        return (!q||searchable.includes(q))&&(!country||r.group===country)&&(!kind||r.kind===kind)&&(!year||[r.month,...(r.historical_sources||[]).map(src=>src.month)].some(m=>(m||'').startsWith(year)))&&(!status||r.status===status)&&(!rb||(rb==='over'?r.over:!r.over&&r.rb===Number(rb)));
+        const searchable=[r.name,r.country,r.group,countryEN[r.country],countryEN[r.group],T.en.kinds[r.kind],T.zh.kinds[r.kind],statusText(r),statusEN[r.status_label],r.rb_reason,r.reason,...(r.aliases||[]),...(r.historical_sources||[]).map(s=>s.month||''),...(r.related_suggestions||[]).flatMap(s=>[s.month||'',s.name||''])].join(' ').toLocaleLowerCase();
+        return (!q||searchable.includes(q))&&(!country||r.group===country)&&(!kind||r.kind===kind)&&(!year||[r.month,...(r.historical_sources||[]).map(src=>src.month),...(r.related_suggestions||[]).map(src=>src.month)].some(m=>(m||'').startsWith(year)))&&(!status||r.status===status)&&(!rb||(rb==='over'?r.over:!r.over&&r.rb===Number(rb)));
       });
       hits.sort((a,b)=>order==='recent'?(b.month||'').localeCompare(a.month||''):order==='name'?(a.name||'').localeCompare(b.name||''):order==='low'?(a.rb??999)-(b.rb??999):order==='high'?(b.rb??-1)-(a.rb??-1):String(a.group).localeCompare(String(b.group),'zh-CN')||String(a.kind).localeCompare(String(b.kind))||String(a.name).localeCompare(String(b.name)));
       page=0;render();
