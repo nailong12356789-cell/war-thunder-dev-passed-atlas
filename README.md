@@ -63,3 +63,7 @@ Run `python scripts/validate_atlas.py` locally. The same check runs in GitHub Ac
 **Version 10.1 is bilingual.** Open [`index.html`](index.html) to switch between **中文** and **English**. The UI, filters, nations, statuses and searches support English; projected RB descriptions are cautious English summaries rather than full technical translations. The original Chinese reasoning is expandable on every card. Language preference is saved locally. If JavaScript is blocked, a static Chinese catalog remains available.
 
 This is an independent, unofficial, bilingual Chinese/English offline-first atlas for War Thunder vehicle suggestions passed to the developers. It includes 1,184 candidate entries and community-projected RB values, not official game ratings. A number of entries remain unverified. All third-party image binaries have been excluded from the public starter release while source links and licensing metadata are retained. Open `index.html` directly in a browser to browse offline. Interface source: `src/app.js` (rebuild using `npm run build`).
+
+## Jaguar duplicate correction
+
+The China-tree 2021 and 2025 Jaguar MBT records were consolidated; both source links are retained in `historical_sources`. The separate US-tree proposal remains under review.
