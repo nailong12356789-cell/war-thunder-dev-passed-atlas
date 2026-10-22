@@ -5,7 +5,7 @@
 收录官方论坛“已转交开发者”的载具候选，并提供国家、类别、年份、预计历史模式战斗评级（RB）和状态筛选。支持 iPhone / Windows **离线打开 `index.html`**，不需要安装依赖或搭建服务器。**V10.1 已加入中文 / English 一键切换、浏览器语言自动识别以及中英文搜索。**源文件数据核查截至 **2026-10-10**。
 
 - **1,183** 条候选记录：陆战 **551** / 空战 **526** / 直升机 **106**。
-- **596** 条状态仍待核实；转交开发者不代表已经确定实装。
+- **595** 条状态仍待核实；转交开发者不代表已经确定实装。
 - **64** 条含中文括注的载具新增 `name_en` 英文显示名；原始中文名称、转交日期和来源均保留，中英文均可搜索。
 - RB 为项目自制预测，不是官方 War Thunder 数据。
 - 采用原始 V10 的数据，附 `data/vehicles.json` 便于程序化使用。
@@ -36,7 +36,7 @@
 
 这个仓库刚开始公开发布，尚无可核实的长期用户量、下载量或维护历史；欢迎社区参与核查。
 
-- [核对 596 条待核实载具记录](https://github.com/nailong12356789-cell/war-thunder-dev-passed-atlas/issues/1)
+- [核对 595 条待核实载具记录](https://github.com/nailong12356789-cell/war-thunder-dev-passed-atlas/issues/1)
 - [逐张核实图像授权，再决定是否重新加入离线照片](https://github.com/nailong12356789-cell/war-thunder-dev-passed-atlas/issues/2)
 - [校对英文载具名称和技术分析](https://github.com/nailong12356789-cell/war-thunder-dev-passed-atlas/issues/3)
 - [核实 29 条缺少转交月份的记录](https://github.com/nailong12356789-cell/war-thunder-dev-passed-atlas/issues/5)
