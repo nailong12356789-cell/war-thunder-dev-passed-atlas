@@ -31,6 +31,28 @@ def main() -> int:
     if embedded != records:
         errors.append("data/vehicles.json does not match embedded index.html records.")
 
+    # Prevent rebuilds from reverting fixes in the published bilingual UI.
+    script_marker = "<script>\\n(function () {".replace("\\n", "\n")
+    script_start = index.rfind(script_marker)
+    script_end = index.find("</script></body></html>", script_start)
+    if script_start < 0 or script_end < 0:
+        errors.append("Could not locate the published bilingual app script.")
+    else:
+        embedded_app = index[script_start + len("<script>\n"):script_end].strip()
+        source_app = (ROOT / "src/app.js").read_text(encoding="utf-8").strip()
+        if embedded_app != source_app:
+            errors.append("src/app.js and the published index.html script differ; run npm run build.")
+
+    # Static fallback must remain complete for browsers that block JavaScript.
+    fallback_start = index.find('<section class="fallback" id="fallback">')
+    fallback_end = index.find("</section>", fallback_start)
+    if fallback_start < 0 or fallback_end < 0:
+        errors.append("Static fallback catalog is missing.")
+    else:
+        fallback_count = index[fallback_start:fallback_end].count("<details><summary>")
+        if fallback_count != len(records):
+            errors.append(f"Static fallback has {fallback_count} records, expected {len(records)}.")
+
     ids = [r.get("id") for r in records]
     duplicate_ids = [name for name, n in collections.Counter(ids).items() if n > 1]
     if duplicate_ids:
