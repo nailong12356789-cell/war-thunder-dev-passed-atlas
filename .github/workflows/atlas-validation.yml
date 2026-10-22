@@ -5,12 +5,16 @@ on:
       - 'index.html'
       - 'data/vehicles.json'
       - 'scripts/validate_atlas.py'
+      - 'src/app.js'
+      - 'tools/sync-app.js'
       - '.github/workflows/atlas-validation.yml'
   pull_request:
     paths:
       - 'index.html'
       - 'data/vehicles.json'
       - 'scripts/validate_atlas.py'
+      - 'src/app.js'
+      - 'tools/sync-app.js'
       - '.github/workflows/atlas-validation.yml'
   workflow_dispatch:
 jobs:
@@ -18,5 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Check JavaScript syntax
+        run: node --check src/app.js
       - name: Validate offline atlas against JSON data
         run: python3 scripts/validate_atlas.py
