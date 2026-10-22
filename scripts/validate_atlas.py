@@ -38,6 +38,16 @@ def validate(html_path: Path, json_path: Path) -> None:
                and src.get("monthly_url") for src in sources), "Historic Jaguar provenance missing"
 
     missing = [row["id"] for row in data if not row.get("month")]
+    # Unverified dates must remain explicitly labeled in interactive and static views.
+    assert all(row["status"] == "pending" for row in data if not row.get("month")), \
+        "Entries with missing transfer dates must be pending verification"
+    static_unknown = html.count("</summary><p> 转交月份待核实 · ")
+    assert static_unknown == len(missing), \
+        f"Missing-date labels in static catalog: {static_unknown} vs {len(missing)}"
+    assert "year===\'unknown\'" in html and "Date unverified" in html, \
+        "Interactive missing-date year filter or bilingual date label missing"
+    assert "records.flatMap(r=>[r.month,...(r.historical_sources||[])" in html, \
+        "Historic dev-passed months omitted from year options"
     print(f"OK: {len(data)} total; Ground={kind['G']} Air={kind['A']} Heli={kind['H']}; "
           f"pending={expected[-1]}; missing dates={len(missing)}")
     if missing:
