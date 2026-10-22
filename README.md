@@ -41,6 +41,11 @@
 
 ## 数据质量检查 / Data validation
 
+最新记录核查报告：**[Data quality snapshot](docs/DATA_QUALITY.md)**（列出 29 条转交月份待核实记录、来源链接及疑似重复项）。法国 EBR 同名记录请参见 [Issue #4](https://github.com/nailong12356789-cell/war-thunder-dev-passed-atlas/issues/4)，核实具体变型前不自动删除。
+
+Latest review queue: [Data quality snapshot](docs/DATA_QUALITY.md). The two French Panhard EBR entries are tracked in [Issue #4](https://github.com/nailong12356789-cell/war-thunder-dev-passed-atlas/issues/4) pending variant and source verification.
+
+
 运行 `python scripts/validate_atlas.py`，可离线检查：记录 ID 是否重复、`data/vehicles.json` 与 `index.html` 内嵌数据是否一致、主页数字是否准确，以及中国美洲虎去重结果是否被意外覆盖。GitHub Actions 会在相关文件被修改时自动执行检查。缺少转交月份和疑似同名载具将以警告形式提示，不能在缺乏资料时直接批量删除。
 
 Run `python scripts/validate_atlas.py` locally. The same check runs in GitHub Actions on data/site changes. Suspected duplicate names are warnings until individually verified.
