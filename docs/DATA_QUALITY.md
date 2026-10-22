@@ -44,6 +44,8 @@ See [Issue #5](https://github.com/nailong12356789-cell/war-thunder-dev-passed-at
 
 **Panhard EBR — France, Ground:** `h393518` (2019-01, [proposal](https://forum.warthunder.com/index.php?/topic/393518-panhard-ebr-all-variants/)) and `h330690` (2019-12, [proposal](https://forum.warthunder.com/index.php?/topic/330690-panhard-ebr-wheeled-reconnaissance-vehicle/)). These records may refer to overlapping proposals, but the EBR family has multiple configurations; do not merge them without checking configuration and the versions already in game. Track in [Issue #4](https://github.com/nailong12356789-cell/war-thunder-dev-passed-atlas/issues/4).
 
+**Official EBR implementation cross-check (2026-10-22):** The [War Thunder Wiki EBR family index](https://wiki.warthunder.com/collections/family/ebr) lists the in-game [1951](https://wiki.warthunder.com/unit/fr_panhard_ebr_1951) (75 mm SA49), [1954](https://wiki.warthunder.com/unit/fr_panhard_ebr_1954) (75 mm SA50 L/57) and [1963](https://wiki.warthunder.com/unit/fr_panhard_ebr_1963) (90 mm CN90 F2). The old suggestion titles do not demonstrate a fourth distinct configuration. Their original forum threads cannot currently be checked; keep both entries pending and avoid treating them as confirmed unimplemented.
+
 **Jaguar Main Battle Tank — China:** historical Feb 2021 and July 2025 suggestions have been consolidated into one record. Old source links are retained in `historical_sources`; the separate US-tree entry is not silently removed.
 
 ## Checks
