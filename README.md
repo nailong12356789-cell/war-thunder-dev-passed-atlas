@@ -50,7 +50,7 @@ Latest review queue: [Data quality snapshot](docs/DATA_QUALITY.md). The two Fren
 
 运行 `python scripts/validate_atlas.py`，可离线检查：记录 ID 是否重复、`data/vehicles.json` 与 `index.html` 内嵌数据是否一致、主页数字是否准确，以及中国美洲虎去重结果是否被意外覆盖。GitHub Actions 会在相关文件被修改时自动执行检查。缺少转交月份和疑似同名载具将以警告形式提示，不能在缺乏资料时直接批量删除。
 
-Run `python scripts/validate_atlas.py` locally. The same check runs in GitHub Actions on data/site changes. Suspected duplicate names are warnings until individually verified.
+Run `python3 scripts/validate_atlas.py` to check records, data synchronization and the static catalog; run `node scripts/test_ui.mjs` to check JavaScript syntax, RB sort ordering (including above-maximum and unknown ratings), and bilingual empty-state handling. Both tests run in GitHub Actions on relevant changes. Suspected duplicate names remain warnings until individually verified.
 
 ## 参与开发
 
