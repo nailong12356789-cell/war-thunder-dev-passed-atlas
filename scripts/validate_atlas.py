@@ -37,6 +37,14 @@ def validate(html_path: Path, json_path: Path) -> None:
     assert any(src.get("month") == "2021-02" and src.get("suggestion_url")
                and src.get("monthly_url") for src in sources), "Historic Jaguar provenance missing"
 
+    # Names with Chinese qualifiers need an English display title while keeping the original.
+    localized = [row for row in data if re.search(r"[\\u3400-\\u9fff]", row["name"])]
+    untranslated = [row["id"] for row in localized
+                    if not row.get("name_en") or re.search(r"[\\u3400-\\u9fff]", row["name_en"])]
+    assert not untranslated, "Missing English display names: " + ", ".join(untranslated)
+    assert "r.name_en,r.country" in html and "r.name_en||r.name" in html, \\
+        "English display names must be visible and searchable in index.html"
+
     missing = [row["id"] for row in data if not row.get("month")]
     # Unverified dates must remain explicitly labeled in interactive and static views.
     assert all(row["status"] == "pending" for row in data if not row.get("month")), \
