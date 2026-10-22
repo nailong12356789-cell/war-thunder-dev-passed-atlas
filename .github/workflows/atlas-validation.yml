@@ -5,12 +5,14 @@ on:
       - 'index.html'
       - 'data/vehicles.json'
       - 'scripts/validate_atlas.py'
+      - 'scripts/test_ui.mjs'
       - '.github/workflows/atlas-validation.yml'
   pull_request:
     paths:
       - 'index.html'
       - 'data/vehicles.json'
       - 'scripts/validate_atlas.py'
+      - 'scripts/test_ui.mjs'
       - '.github/workflows/atlas-validation.yml'
   workflow_dispatch:
 permissions:
@@ -22,3 +24,5 @@ jobs:
       - uses: actions/checkout@v4
       - name: Check HTML / JSON consistency
         run: python3 scripts/validate_atlas.py
+      - name: Check JavaScript syntax and RB sorting
+        run: node scripts/test_ui.mjs
