@@ -38,6 +38,7 @@
 - [核对 596 条待核实载具记录](https://github.com/nailong12356789-cell/war-thunder-dev-passed-atlas/issues/1)
 - [逐张核实图像授权，再决定是否重新加入离线照片](https://github.com/nailong12356789-cell/war-thunder-dev-passed-atlas/issues/2)
 - [校对英文载具名称和技术分析](https://github.com/nailong12356789-cell/war-thunder-dev-passed-atlas/issues/3)
+- [核实 29 条缺少转交月份的记录](https://github.com/nailong12356789-cell/war-thunder-dev-passed-atlas/issues/5)
 
 ## 数据质量检查 / Data validation
 
@@ -62,7 +63,7 @@ Run `python scripts/validate_atlas.py` locally. The same check runs in GitHub Ac
 
 **Version 10.1 is bilingual.** Open [`index.html`](index.html) to switch between **中文** and **English**. The UI, filters, nations, statuses and searches support English; projected RB descriptions are cautious English summaries rather than full technical translations. The original Chinese reasoning is expandable on every card. Language preference is saved locally. If JavaScript is blocked, a static Chinese catalog remains available.
 
-This is an independent, unofficial, bilingual Chinese/English offline-first atlas for War Thunder vehicle suggestions passed to the developers. It includes 1,184 candidate entries and community-projected RB values, not official game ratings. A number of entries remain unverified. All third-party image binaries have been excluded from the public starter release while source links and licensing metadata are retained. Open `index.html` directly in a browser to browse offline. Interface source: `src/app.js` (rebuild using `npm run build`).
+This is an independent, unofficial, bilingual Chinese/English offline-first atlas for War Thunder vehicle suggestions passed to the developers. It includes 1,184 candidate entries and community-projected RB values, not official game ratings. A number of entries remain unverified. All third-party image binaries have been excluded from the public starter release while source links and licensing metadata are retained. Open `index.html` directly in a browser to browse offline. The published `index.html` is a self-contained offline page; its embedded dataset is checked against `data/vehicles.json`.
 
 ## Jaguar duplicate correction
 
